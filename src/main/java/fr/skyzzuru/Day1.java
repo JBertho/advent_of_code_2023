@@ -8,7 +8,7 @@ public class Day1 {
     Map<String,String> DIGITS = Map.of("one","1","two","2","three","3","four","4",
             "five","5","six","6","seven","7","eight","8","nine","9");
 
-    String[] checkValue = new String[]{"one","1","two","2","three","2","four","4",
+    String[] checkValue = new String[]{"one","1","two","2","three","3","four","4",
             "five","5","six","6","seven","7","eight","8","nine","9"};
 
     public void partOne(String value) {
@@ -28,13 +28,9 @@ public class Day1 {
                 }
             }
 
-            System.out.println("LINE : " + s);
             if (start != null) {
-                System.out.println(start);
-                System.out.println(end);
                 int valueToAdd = Integer.parseInt(start) * 10;
                 valueToAdd += Integer.parseInt(end);
-                System.out.println("ADD : " + valueToAdd);
                 sum += valueToAdd;
             }
 
@@ -54,42 +50,31 @@ public class Day1 {
 
             for (String numericValue : checkValue) {
                 int idx = s.indexOf(numericValue);
-                System.out.println("value : " + numericValue + " -> idx :" + idx);
+                int lastIdx = s.lastIndexOf(numericValue);
                 if(startIdx == -1) {
-                    System.out.println("step1");
                     startIdx = idx;
                     start = numericValue;
-                } else if (idx < startIdx && idx != -1) {
-                    System.out.println("step2");
-
-                    startIdx = idx;
-                    start = numericValue;
-                }else if (idx > endIdx) {
-                    System.out.println("step3");
-
                     endIdx = idx;
+                    end = numericValue;
+                } else if (idx < startIdx && idx != -1) {
+                    startIdx = idx;
+                    start = numericValue;
+                }
+                if(lastIdx > endIdx) {
+                    endIdx = lastIdx;
                     end = numericValue;
                 }
 
             }
-
-            System.out.println("LINE : " + s);
             if (start != null) {
-                System.out.println(start);
-                System.out.println(DIGITS.containsKey(start));
                 if (DIGITS.containsKey(start)) {
                     start = DIGITS.get(start);
-                    System.out.println(start);
                 }
-                System.out.println(end);
-                System.out.println(DIGITS.containsKey(end));
-
                 if (DIGITS.containsKey(end)) {
                     end = DIGITS.get(end);
                 }
                 int valueToAdd = Integer.parseInt(start) * 10;
                 valueToAdd += Integer.parseInt(end);
-                System.out.println("ADD : " + valueToAdd);
                 sum += valueToAdd;
             }
 
