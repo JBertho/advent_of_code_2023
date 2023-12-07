@@ -17,6 +17,8 @@ public class Main {
         Day3 day3 = new Day3();
         System.out.println(day3.partOne(fileLoader.readFile("day3_input_exemple.txt")));
         System.out.println(day3.partOne(fileLoader.readFile("day3_input.txt")));
+        System.out.println(day3.partTwo(fileLoader.readFile("day3_input_exemple.txt")));
+        System.out.println(day3.partTwo(fileLoader.readFile("day3_input.txt")));
 
     }
 
