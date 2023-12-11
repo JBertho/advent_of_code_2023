@@ -36,6 +36,8 @@ public class Main {
         System.out.println("\n-- DAY 5 --");
         System.out.println(day5.partOne(fileLoader.readFile("day5_input_exemple.txt")));
         System.out.println(day5.partOne(fileLoader.readFile("day5_input.txt")));
+        System.out.println(day5.partTwo(fileLoader.readFile("day5_input_exemple.txt")));
+        System.out.println(day5.partTwo(fileLoader.readFile("day5_input.txt")));
 
 
     }
